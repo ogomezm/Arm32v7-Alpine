@@ -2,11 +2,14 @@ general:
   build_dir: build
 
 dependencies:
-  post: 
-    - sh ./Arm32v7-Alpine/alpine-minirootfs-download.sh
+  post:
+    - pwd
+    - ls 
+    - sh alpine-minirootfs-download.sh
 
 compile:
    post:
-     - cd Arm32v7-Alpine
+     - pwd
+     - ls
      - sh alpine-minirootfs-docker-build.sh
  
