@@ -3,4 +3,5 @@ general:
 
 dependencies:
   post:
+    - ls 
     - sh ./alpine-minirootfs-download.sh
