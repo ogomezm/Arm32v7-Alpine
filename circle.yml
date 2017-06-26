@@ -3,8 +3,7 @@ general:
 
 dependencies:
   post:
-    - pwd
-    - ls 
+    - cd Arm32v7-Alpine 
     - sh alpine-minirootfs-download.sh
 
 compile:
