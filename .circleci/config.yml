@@ -5,9 +5,8 @@ jobs:
 
     working_directory: /home/ubuntu
     steps:
-      # command will execute in trusty container
       - checkout
-      - cd Arm32v7-Alpine
+      - pwd
       - sh ./alpine-minirootfs-download.sh
       - setup_remote_docker
       - sh ./alpine-minirootfs-docker-build.sh
