@@ -9,8 +9,5 @@ compile:
    post:
      - pwd
      - ls
-     - cd Arm32v7-Alpine
-     - pwd
-     - ls
      - sh ./alpine-minirootfs-docker-build.sh
  
