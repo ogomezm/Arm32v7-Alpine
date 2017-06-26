@@ -15,4 +15,4 @@ jobs:
       - run: git config --global user.name "CircleCI"
       - run: git commit -m "[ci skip] CircleCI rootfs autogeneration"
       - run: git push origin master
-
+      - run: echo Build has ended sucesfully!
