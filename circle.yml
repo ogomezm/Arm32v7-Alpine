@@ -1,0 +1,6 @@
+general:
+  build_dir: build
+
+dependencies:
+  post:
+    - sh ./alpine-minirootfs-download.sh
