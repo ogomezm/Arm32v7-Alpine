@@ -2,16 +2,15 @@
 dependencies:
   post:
     - pwd
-    - cd Arm32v7-Alpine
     - ls 
-    - pwd
     - sh ./alpine-minirootfs-download.sh
 
 compile:
    post:
      - pwd
-     - cd Arm32v7-Alpine
      - ls
+     - cd Arm32v7-Alpine
      - pwd
+     - ls
      - sh ./alpine-minirootfs-docker-build.sh
  
