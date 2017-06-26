@@ -7,6 +7,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: ls
       - run: sh ./alpine-minirootfs-download.sh
+      - run: ls
       - run: sh ./alpine-minirootfs-docker-build.sh
+      - run: ls
