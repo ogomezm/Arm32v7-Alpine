@@ -1,7 +1,7 @@
 jobs:
   build:
     docker:
-      - image: docker
+      - image: docker:stable-git
 
     working_directory: /home/ubuntu
     steps:
