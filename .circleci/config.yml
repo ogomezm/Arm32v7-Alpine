@@ -1,6 +1,10 @@
 jobs:
   build:
+    docker:
+    working_directory: /home/ubuntu/Arm32v7-Alpine
     steps:
+      - checkout
       # ... steps for building/testing app ...
 
-      - setup_remote_docker
+      - setup_remote_docker   # (2)
+
