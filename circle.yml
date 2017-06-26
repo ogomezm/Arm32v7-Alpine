@@ -4,8 +4,18 @@ general:
 dependencies:
   post: 
     - sh ./Arm32v7-Alpine/alpine-minirootfs-download.sh
+jobs:
+  build:
+    docker:
+	image:
+    working_directory: ./Arm32v7-Alpine/
+    steps:
+      - checkout
+      # ... steps for building/testing app ...
 
-compile:
-  post:
-    - sh ./Arm32v7-Alpine/alpine-minirootfs-docker-build.sh
+      - setup_remote_docker
 
+	# build Docker image
+      - run:
+	  name: Build Docker Image
+	  command: sh ./Arm32v7-Alpine/alpine-minirootfs-docker-build.sh
