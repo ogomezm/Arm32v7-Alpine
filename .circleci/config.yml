@@ -6,9 +6,9 @@ jobs:
     working_directory: /home/ubuntu
     steps:
       - checkout
+      - setup_remote_docker
       - pwd
       - ls
       - sh ./alpine-minirootfs-download.sh
-      - setup_remote_docker
       - sh ./alpine-minirootfs-docker-build.sh
 
