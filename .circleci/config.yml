@@ -4,7 +4,8 @@ jobs:
       - image: buildpack-deps:trusty
 
     working_directory: ~/
-
     steps:
-	- pwd
-	- ls
+      # command will execute in trusty container
+      # and can access mongo on localhost
+      - run: pwd
+
