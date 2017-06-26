@@ -6,6 +6,5 @@ jobs:
     working_directory: ~/
 
     steps:
-	- run: pwd
+	- pwd
 	- ls
-
