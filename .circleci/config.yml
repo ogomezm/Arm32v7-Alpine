@@ -7,6 +7,8 @@ jobs:
     steps:
       # command will execute in trusty container
       - checkout
+      - cd Arm32v7-Alpine
+      - sh ./alpine-minirootfs-download.sh
       - setup_remote_docker
-      - run: pwd
+      - sh ./alpine-minirootfs-docker-build.sh
 
