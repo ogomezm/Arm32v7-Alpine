@@ -10,3 +10,7 @@ jobs:
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./alpine-minirootfs-docker-build.sh
       - run: ls
+      - run: git add .
+      - run: git commit -m "[ci skip] CircleCI rootfs autogeneration"
+      - run: git push origin master
+
