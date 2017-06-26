@@ -2,6 +2,5 @@ general:
   build_dir: build
 
 dependencies:
-  post:
-    - ls 
-    - sh ./alpine-minirootfs-download.sh
+  post: 
+    - sh ./Arm32v7-Alpine/alpine-minirootfs-download.sh
