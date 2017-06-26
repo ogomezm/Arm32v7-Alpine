@@ -1,0 +1,6 @@
+jobs:
+  build:
+    steps:
+      # ... steps for building/testing app ...
+
+      - setup_remote_docker
