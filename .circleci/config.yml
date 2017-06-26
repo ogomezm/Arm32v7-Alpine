@@ -3,9 +3,10 @@ jobs:
     docker:
       - image: buildpack-deps:trusty
 
-    working_directory: ~/
+    working_directory: /home/ubuntu
     steps:
       # command will execute in trusty container
-      # and can access mongo on localhost
+      - checkout
+      - setup_remote_docker
       - run: pwd
 
