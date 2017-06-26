@@ -9,5 +9,6 @@ compile:
    post:
      - pwd
      - ls
+     - setup_remote_docker
      - sh ./alpine-minirootfs-docker-build.sh
  
