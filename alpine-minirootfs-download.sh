@@ -14,6 +14,3 @@ do
     echo "Downloading [$alpineUrl$file]"
     wget -q $alpineUrl$file
 done < filenames.log
-
-rm filenames.log
-

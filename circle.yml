@@ -4,3 +4,8 @@ general:
 dependencies:
   post: 
     - sh ./Arm32v7-Alpine/alpine-minirootfs-download.sh
+
+compile:
+  post:
+    - sh ./Arm32v7-Alpine/alpine-minirootfs-docker-build.sh
+
