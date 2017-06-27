@@ -18,7 +18,7 @@ done < filenames.log
 rootfsfile=$(head -1 filenames.log)
 signaturefile=$(tail -1 filenames.log)
 
-OK=sha512sum -c $signaturefile | grep OK | wc -l
+OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 
    if [ $OK -eq 1 ]; then
        echo "File sucesfully validated!!!. [sha512 signature]"
