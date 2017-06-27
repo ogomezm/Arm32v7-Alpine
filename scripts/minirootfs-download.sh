@@ -45,7 +45,7 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	cp $signaturefile ../../signature.tar.xz.sha512
 
         echo "Moving downloaded files to /release folder"
-        yes | cp -rf alpine* ../*
+        mv -f alpine* ../*
 
        else
          echo "[Warning] File signatures are equal. Update not needed"
