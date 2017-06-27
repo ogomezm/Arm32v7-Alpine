@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
 
+cd release
+
 wget -O - -q $alpineUrl |
 grep minirootfs |
 tail -4 |
@@ -11,7 +13,7 @@ while read -r line
 do
     file="$line"
     echo "Downloading [$alpineUrl$file]"
-    wget -q $alpineUrl$file
+    wget -q $alpineUrl$file 
 done < filenames.log
 
 rootfsfile=$(head -1 filenames.log)
@@ -24,7 +26,7 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 
        OldKey='Default'
 
-       if [ -f signature.tar.xz.sha512 ]; then
+       if [ -f ../signature.tar.xz.sha512 ]; then
           OldKey=$(sha512sum signature.tar.xz.sha512 | cut -d' ' -f 1)
        fi
 
@@ -34,10 +36,10 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
 	echo "Renaming to rootfs.tar.xz"
-	cp $rootfsfile rootfs.tar.xz
+	cp $rootfsfile ../rootfs.tar.xz
 
 	echo "Renaming Signature"
-	cp $signaturefile signature.tar.xz.sha512
+	cp $signaturefile ../signature.tar.xz.sha512
        else
          echo "[Warning] File signatures are equal. Update not needed"
        fi

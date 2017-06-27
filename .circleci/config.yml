@@ -7,11 +7,11 @@ jobs:
     steps:
       - checkout
       - run: sh ./scripts/install-packages.sh
-      - run: sh ./scripts/alpine-minirootfs-download.sh
+      - run: sh ./scripts/minirootfs-download.sh
       - run: sh ./scripts/cleaning.sh
       - setup_remote_docker
       - run: sh ./scripts/Arm32v7-Alpine-docker-build.sh
       - run: sh ./scripts/Arm32v7-Alpine-docker-run.sh
       - run: sh ./scripts/Arm32v7-Alpine-tests.sh
       - run: ls -lah
-      - run: sh ./scripts/alpine-dockerhub-build.sh
+      - run: sh ./scripts/dockerhub-build.sh
