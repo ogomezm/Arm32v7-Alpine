@@ -38,14 +38,16 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
        if [ "$OldKey" != "$NewKey" ]; then
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
+##  \cp prevents interactive cp to be launch by any alias
+
 	echo "Renaming to rootfs.tar.xz"
-	cp $rootfsfile ../../rootfs.tar.xz
+	\cp $rootfsfile ../../rootfs.tar.xz
 
 	echo "Renaming Signature"
-	cp $signaturefile ../../signature.tar.xz.sha512
+	\cp $signaturefile ../../signature.tar.xz.sha512
 
         echo "Moving downloaded files to /release folder"
-        cp alpine* ../*
+        \cp alpine* ../*
 
        else
          echo "[Warning] File signatures are equal. Update not needed"
