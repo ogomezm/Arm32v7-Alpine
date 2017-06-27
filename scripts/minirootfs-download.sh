@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
 ls -la
-cd Arm32v7-Alpine
 cd release
 mkdir tmp
 cd tmp

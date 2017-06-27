@@ -1,1 +1,1 @@
-Copy of the Alpine files used for the build
+Copy of used Alpine Linux files
