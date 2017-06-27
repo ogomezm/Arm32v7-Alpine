@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
-
+cd release
 mkdir tmp
 cd tmp
 
-echo "Current directory: $pwd"
+echo "Current directory: $(pwd)"
 
 wget -O - -q $alpineUrl |
 grep minirootfs |

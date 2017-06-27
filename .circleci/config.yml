@@ -20,10 +20,8 @@ jobs:
       - run:
           name: Downloading Alpine
           command: |
-             cd release
              sh ../scripts/minirootfs-download.sh
              sh ../scripts/cleaning.sh
-             cd ..
 
     # Bringing remote docker up
       - setup_remote_docker
