@@ -6,6 +6,7 @@ jobs:
     working_directory: /home/ubuntu
     steps:
       - checkout
+      - run: apk add --update curl && \
       - setup_remote_docker
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./alpine-minirootfs-docker-build.sh
@@ -15,6 +16,4 @@ jobs:
       - run: git config --global user.name "CircleCI"
       - run: git commit -m "[ci skip] CircleCI rootfs autogeneration"
       - run: git push origin master
-      - run: apk add --update curl && \
-      - run: rm -rf /var/cache/apk/*
       - run: sh ./alpine-dockerhub-build.sh
