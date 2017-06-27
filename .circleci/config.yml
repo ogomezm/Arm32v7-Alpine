@@ -6,12 +6,12 @@ jobs:
     working_directory: /home/ubuntu
     steps:
       - checkout
-      - run: sh ./install-packages.sh
-      - run: sh ./alpine-minirootfs-download.sh
-      - run: sh ./cleaning.sh
+      - run: sh ./scripts/install-packages.sh
+      - run: sh ./scripts/alpine-minirootfs-download.sh
+      - run: sh ./scripts/cleaning.sh
       - setup_remote_docker
-      - run: sh ./Arm32v7-Alpine-docker-build.sh
-      - run: sh ./Arm32v7-Alpine-docker-run.sh
-      - run: sh ./Arm32v7-Alpine-tests.sh
+      - run: sh ./scripts/Arm32v7-Alpine-docker-build.sh
+      - run: sh ./scripts/Arm32v7-Alpine-docker-run.sh
+      - run: sh ./scripts/Arm32v7-Alpine-tests.sh
       - run: ls -lah
-      - run: sh ./alpine-dockerhub-build.sh
+      - run: sh ./scripts/alpine-dockerhub-build.sh
