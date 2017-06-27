@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-2.alpinelinux.org/alpine/latest-stable/releases/armhf/"
-# get all the minirootfs Files
 
 wget -O - -q $alpineUrl |
 grep minirootfs |
@@ -30,7 +29,7 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
        fi
 
        NewKey=$(sha512sum $signaturefile | cut -d' ' -f 1)
-       
+
        echo old key: $OldKey
        echo new key: $NewKey
 
