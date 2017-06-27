@@ -30,9 +30,6 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 
        NewKey=$(sha512sum $signaturefile | cut -d' ' -f 1)
 
-       echo old key: $OldKey
-       echo new key: $NewKey
-
        if [ "$OldKey" != "$NewKey" ]; then
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
@@ -41,5 +38,7 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 
 	echo "Renaming Signature"
 	cp $signaturefile signature.tar.xz.sha512
+       else
+         echo "File signatures are equal. Update not needed [Ending]"
        fi
    fi

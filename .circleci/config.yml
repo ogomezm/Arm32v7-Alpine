@@ -10,5 +10,8 @@ jobs:
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./cleaning.sh
       - setup_remote_docker
+      - run: sh ./Arm32v7-Alpine-docker-build.sh
+      - run: sh ./Arm32v7-Alpine-docker-run.sh
+      - run: sh ./Arm32v7-Alpine-tests.sh
       - run: ls -lah
       - run: sh ./alpine-dockerhub-build.sh
