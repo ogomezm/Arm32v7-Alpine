@@ -45,7 +45,7 @@ jobs:
 
     # list of files in the root directory
       - run:
-          name: list of files in the root directory for logging
+          name: List the files in current directory for logging
 	  command: ls -lah
 
     # Push release folder, rootfs and signature to Github
