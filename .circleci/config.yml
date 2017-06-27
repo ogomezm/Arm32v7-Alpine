@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run: sh ./install-packages.sh
       - run: sh ./alpine-minirootfs-download.sh
+      - run: sh ./cleaning.sh
       - setup_remote_docker
       - run: ls -lah
       - run: sh ./alpine-dockerhub-build.sh

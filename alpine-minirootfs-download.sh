@@ -18,14 +18,21 @@ done < filenames.log
 rootfsfile=$(head -1 filenames.log)
 signaturefile=$(tail -1 filenames.log)
 
-sha512sum $signaturefile
+OK=sha512sum -c $signaturefile | grep OK | wc -l
 
-echo "Renaming to rootfs.tar.xz"
-cp $rootfsfile rootfs.tar.xz
+   if [ $OK -eq 1 ]; then
+       echo "File sucesfully validated!!!. [sha512 signature]"
 
-echo "Renaming Signature"
-cp $signaturefile signature.tar.xz.sha512
+       OLD-KEY=sha512sum signature.tar.xz.sha512 | cut -f 1
+       NEW-KEY=sha512sum $signaturefile | cut -f 1
 
-echo "Cleaning"
-rm filenames.log
-rm alpine-minirootfs-3*
+       if [ $OLD-KEY == $NEW-KEY ]; then
+	echo "A new Alpine version detected $rootfsfile  [Alpine]"
+
+	echo "Renaming to rootfs.tar.xz"
+	cp $rootfsfile rootfs.tar.xz
+
+	echo "Renaming Signature"
+	cp $signaturefile signature.tar.xz.sha512
+       fi
+   fi
