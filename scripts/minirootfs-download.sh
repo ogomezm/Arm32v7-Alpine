@@ -46,9 +46,11 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	cp $signaturefile ../../signature.tar.xz.sha512
 
         echo "Moving downloaded files to /release folder current folder: $(pwd)"
+
         ls -la
-        mv alpine* ../*
-	cd ..
+        cd ..
+	rm *.gz.*
+        cp ./tmp/*.gz.* ./*
 	echo "Directory$(pwd)"
         ls -la
 
