@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
 
+pwd
+
 wget -O - -q $alpineUrl |
 grep minirootfs |
 tail -4 |
