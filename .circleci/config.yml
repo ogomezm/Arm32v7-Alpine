@@ -44,11 +44,6 @@ jobs:
           name: Running the test within the running Arm32v7-Alpine container
           command: sh ./scripts/Arm32v7-Alpine-tests.sh
 
-    # list of files in the root directory
-      - run:
-          name: List the files in current directory for logging
-	  command: ls -lah
-
     # Push release folder, rootfs and signature to Github
     # Trigger the Dockehub.com remote build
       - run:
