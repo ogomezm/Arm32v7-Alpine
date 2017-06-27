@@ -39,6 +39,6 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	echo "Renaming Signature"
 	cp $signaturefile signature.tar.xz.sha512
        else
-         echo "File signatures are equal. Update not needed [Ending]"
+         echo "[Warning] File signatures are equal. Update not needed"
        fi
    fi
