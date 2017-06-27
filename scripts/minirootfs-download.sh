@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
 
+mkdir tmp
+cd tmp
+
 echo "Current directory: $pwd"
 
 wget -O - -q $alpineUrl |
@@ -26,8 +29,8 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 
        OldKey='Default'
 
-       if [ -f ../signature.tar.xz.sha512 ]; then
-          OldKey=$(sha512sum signature.tar.xz.sha512 | cut -d' ' -f 1)
+       if [ -f ../../signature.tar.xz.sha512 ]; then
+          OldKey=$(sha512sum ../../signature.tar.xz.sha512 | cut -d' ' -f 1)
        fi
 
        NewKey=$(sha512sum $signaturefile | cut -d' ' -f 1)
@@ -36,12 +39,15 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
 	echo "Renaming to rootfs.tar.xz"
-	cp $rootfsfile ../rootfs.tar.xz
+	cp $rootfsfile ../../rootfs.tar.xz
 
 	echo "Renaming Signature"
-	cp $signaturefile ../signature.tar.xz.sha512
+	cp $signaturefile ../../signature.tar.xz.sha512
+
+        echo "Moving downloaded files to /release folder"
+        cp alpine* ../*
+
        else
          echo "[Warning] File signatures are equal. Update not needed"
        fi
    fi
-
