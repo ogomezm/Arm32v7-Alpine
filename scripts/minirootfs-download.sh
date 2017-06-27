@@ -50,7 +50,8 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
         ls -la
         cd ..
 	rm *.gz.*
-        cp ./tmp/*.gz.* ./*
+        cd tmp
+        cp *.gz.* ../
 	echo "Directory$(pwd)"
         ls -la
 
