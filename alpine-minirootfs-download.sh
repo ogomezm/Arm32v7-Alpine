@@ -16,8 +16,16 @@ do
 done < filenames.log
 
 rootfsfile=$(head -1 filenames.log)
+signaturefile=$(tail -1 filenames.log)
+
+sha512sum $signaturefile
+
 echo "Renaming to rootfs.tar.xz"
 cp $rootfsfile rootfs.tar.xz
+
+echo "Renaming Signature"
+cp $signaturefile signature.tar.xz.sha512
+
 echo "Cleaning"
 rm filenames.log
 rm alpine-minirootfs-3*
