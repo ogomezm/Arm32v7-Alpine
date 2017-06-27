@@ -23,18 +23,18 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
    if [ $OK -eq 1 ]; then
        echo "File sucesfully validated!!!. [sha512 signature]"
 
-       OLD-KEY='Default'
+       OldKey='Default'
 
        if [ -f signature.tar.xz.sha512 ]; then
-          OLD-KEY=$(sha512sum signature.tar.xz.sha512 | cut -d' ' -f 1)
+          OldKey=$(sha512sum signature.tar.xz.sha512 | cut -d' ' -f 1)
        fi
 
-       NEW-KEY=$(sha512sum $signaturefile | cut -d' ' -f 1)
+       NewKey=$(sha512sum $signaturefile | cut -d' ' -f 1)
        
-       echo old key: $OLD-KEY
-       echo new key: $NEW-KEY
+       echo old key: $OldKey
+       echo new key: $NewKey
 
-       if [ "$OLD-KEY" != "$NEW-KEY" ]; then
+       if [ "$Old-Key" != "$New-Key" ]; then
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
 	echo "Renaming to rootfs.tar.xz"
