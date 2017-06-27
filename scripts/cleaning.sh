@@ -2,3 +2,4 @@
 echo "Cleaning $(pwd)"
 cd release
 rm -Rf ./tmp
+ls -la
