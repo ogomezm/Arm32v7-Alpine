@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
-echo "Cleaning $(pwd)"
+ls -la
 cd release
-rm -f ./tmp
+echo "Cleaning $(pwd)"
+ls -la
+rm -rf ./tmp/
 ls -la
