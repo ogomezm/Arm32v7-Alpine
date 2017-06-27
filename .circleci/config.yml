@@ -3,7 +3,7 @@ jobs:
   build:
 
     docker:
-      - image: circleci:build-image
+      - image: docker:stable-git
 
     working_directory: /home/ubuntu
 
