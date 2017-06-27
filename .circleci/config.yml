@@ -9,6 +9,5 @@ jobs:
       - run: sh ./install-packages.sh
       - setup_remote_docker
       - run: sh ./alpine-minirootfs-download.sh
-      - run: sh ./alpine-minirootfs-docker-build.sh
       - run: ls -lah
       - run: sh ./alpine-dockerhub-build.sh

@@ -14,3 +14,10 @@ do
     echo "Downloading [$alpineUrl$file]"
     wget -q $alpineUrl$file
 done < filenames.log
+
+rootfsfile=$(head -1 filenames.log)
+echo "Renaming to rootfs.tar.xz"
+cp $rootfsfile rootfs.tar.xz
+echo "Cleaning"
+rm filenames.log
+rm alpine-minirootfs-3*
