@@ -44,3 +44,4 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
          echo "[Warning] File signatures are equal. Update not needed"
        fi
    fi
+cd ..

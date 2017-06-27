@@ -2,4 +2,5 @@
 echo "Cleaning"
 cd release
 rm filenames.log
+cd ..
 
