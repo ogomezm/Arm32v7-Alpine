@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 let changes=$(git add -v . | wc -l)
-if [$changes -gt 0]; then
+if $changes > 0 then
 	git config --global user.email $CIRCLE_USERNAME
 	git config --global user.name "CircleCI"
 	git commit -m "[ci skip] CircleCI rootfs autogeneration"
