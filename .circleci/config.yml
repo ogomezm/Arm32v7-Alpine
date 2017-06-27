@@ -1,37 +1,55 @@
 jobs:
+
   build:
+
     docker:
       - image: docker:stable-git
 
     working_directory: /home/ubuntu
+
     steps:
     # Code checkout
       - checkout
 
     # Installing build dependencies
-      - run: sh ./scripts/install-packages.sh
+      - run:
+          name: Downloading build image dependencies
+          command: sh ./scripts/install-packages.sh
 
     # Downloading Alpine
-      - run: cd release
-      - run: sh ../scripts/minirootfs-download.sh
-      - run: sh ../scripts/cleaning.sh
-      - run: cd ..
+      - run:
+          name: Downloading Alpine
+          command: |
+             cd release
+             sh ../scripts/minirootfs-download.sh
+             sh ../scripts/cleaning.sh
+             cd ..
 
     # Bringing remote docker up
       - setup_remote_docker
 
     # Creating Arm32v7-Alpine image 
-      - run: sh ./scripts/Arm32v7-Alpine-docker-build.sh
+      - run:
+          name: Creating Arm32v7-Alpine image
+          command: sh ./scripts/Arm32v7-Alpine-docker-build.sh
 
     # Running the docker container with qemu [Emulating Arm32v7]
-      - run: sh ./scripts/Arm32v7-Alpine-docker-run.sh
+      - run:
+          name: Running the docker container with qemu [Emulating Arm32v7]
+          command: sh ./scripts/Arm32v7-Alpine-docker-run.sh
 
     # Running the test within the running Arm32v7-Alpine container
-      - run: sh ./scripts/Arm32v7-Alpine-tests.sh
+      - run:
+          name: Running the test within the running Arm32v7-Alpine container
+          command: sh ./scripts/Arm32v7-Alpine-tests.sh
 
     # list of files in the root directory
-      - run: ls -lah
+      - run:
+          name: list of files in the root directory [Logging]
+	  command: ls -lah
 
     # Push release folder, rootfs and signature to Github
     # Trigger the Dockehub.com remote build
-      - run: sh ./scripts/dockerhub-build.sh
+      - run:
+          name: Pushing release folder, rootfs and signature to github AND Dockerhub.com build trigger
+          command: sh ./scripts/dockerhub-build.sh
