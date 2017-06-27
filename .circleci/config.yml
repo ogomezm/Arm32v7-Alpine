@@ -6,7 +6,7 @@ jobs:
     working_directory: /home/ubuntu
     steps:
       - checkout
-      - run: apk add --update curl && \
+      - run: sh ./install-packages.sh
       - setup_remote_docker
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./alpine-minirootfs-docker-build.sh
