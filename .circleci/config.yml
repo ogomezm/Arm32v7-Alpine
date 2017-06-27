@@ -10,5 +10,5 @@ jobs:
       - setup_remote_docker
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./alpine-minirootfs-docker-build.sh
-      - run: ls
+      - run: ls -lah
       - run: sh ./alpine-dockerhub-build.sh
