@@ -28,6 +28,7 @@ jobs:
     # Bringing remote docker up
       - setup_remote_docker
 
+
     # Creating Arm32v7-Alpine image 
       - run:
           name: Creating Arm32v7-Alpine image
