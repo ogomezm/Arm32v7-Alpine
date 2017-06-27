@@ -11,9 +11,4 @@ jobs:
       - run: sh ./alpine-minirootfs-download.sh
       - run: sh ./alpine-minirootfs-docker-build.sh
       - run: ls
-      - run: git add .
-      - run: git config --global user.email $CIRCLE_USERNAME
-      - run: git config --global user.name "CircleCI"
-      - run: git commit -m "[ci skip] CircleCI rootfs autogeneration"
-      - run: git push origin master
       - run: sh ./alpine-dockerhub-build.sh
