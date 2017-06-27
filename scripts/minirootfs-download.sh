@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 alpineUrl="http://dl-cdn.alpinelinux.org/alpine/latest-stable/releases/armhf/"
 
-cd release
-
 wget -O - -q $alpineUrl |
 grep minirootfs |
 tail -4 |
@@ -44,4 +42,4 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
          echo "[Warning] File signatures are equal. Update not needed"
        fi
    fi
-cd ..
+

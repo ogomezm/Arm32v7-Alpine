@@ -5,13 +5,33 @@ jobs:
 
     working_directory: /home/ubuntu
     steps:
+    # Code checkout
       - checkout
+
+    # Installing build dependencies
       - run: sh ./scripts/install-packages.sh
-      - run: sh ./scripts/minirootfs-download.sh
-      - run: sh ./scripts/cleaning.sh
+
+    # Downloading Alpine
+      - run: cd release
+      - run: sh ../scripts/minirootfs-download.sh
+      - run: sh ../scripts/cleaning.sh
+      - run: cd ..
+
+    # Bringing remote docker up
       - setup_remote_docker
+
+    # Creating Arm32v7-Alpine image 
       - run: sh ./scripts/Arm32v7-Alpine-docker-build.sh
+
+    # Running the docker container with qemu [Emulating Arm32v7]
       - run: sh ./scripts/Arm32v7-Alpine-docker-run.sh
+
+    # Running the test within the running Arm32v7-Alpine container
       - run: sh ./scripts/Arm32v7-Alpine-tests.sh
+
+    # list of files in the root directory
       - run: ls -lah
+
+    # Push release folder, rootfs and signature to Github
+    # Trigger the Dockehub.com remote build
       - run: sh ./scripts/dockerhub-build.sh
