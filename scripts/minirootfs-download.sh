@@ -45,8 +45,12 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
 	echo "Renaming Signature"
 	cp $signaturefile ../../signature.tar.xz.sha512
 
-        echo "Moving downloaded files to /release folder"
-        mv -f ./alpine* ../*
+        echo "Moving downloaded files to /release folder current folder: $(pwd)"
+        ls -la
+        mv alpine* ../*
+	cd ..
+	echo "Directory$(pwd)"
+        ls -la
 
        else
          echo "[Warning] File signatures are equal. Update not needed"
