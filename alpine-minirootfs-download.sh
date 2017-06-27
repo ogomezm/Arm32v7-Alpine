@@ -34,7 +34,7 @@ OK=$(sha512sum -c $signaturefile | grep OK | wc -l)
        echo old key: $OldKey
        echo new key: $NewKey
 
-       if [ "$Old-Key" != "$New-Key" ]; then
+       if [ "$OldKey" != "$NewKey" ]; then
 	echo "A new Alpine version detected $rootfsfile  [Alpine]"
 
 	echo "Renaming to rootfs.tar.xz"
